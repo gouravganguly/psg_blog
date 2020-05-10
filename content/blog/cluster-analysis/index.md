@@ -10,6 +10,10 @@ description: Demonstrating how Cluster Analysis can be done using Python
  - The goal of cluster analysis is to **partition** the data into **distinct sub-groups or clusters** such that observations belonging to the same cluster is very similar or **homogeneous** and observations belonging to different clusters are **different or heterogenous.** 
  - The measurement of **similarity** may be **distance, correlation, cosine similarity** etc. depending on the **context/domain** of the problem.
 
+#### Youtube Tutorial
+
+Link to Hierarchical Clustering [Hierarchical clustering using Python](https://youtu.be/B4NpMtK-ZxA).
+
 ### Application of Clustering
 
  - One very popular application of cluster analysis in business is **market segmentation.** Here, customers are grouped into distinct clusters or market segments and **each segment is targeted with different marketing mix** such as different promotional messages, different products, different prices, and different distribution channels.
@@ -169,7 +173,7 @@ for i, txt in enumerate(df.State):
 ```
 ### R code for K-Means Clustering
 
-```
+```r
 
 # clustering-kMeans
 # load the data

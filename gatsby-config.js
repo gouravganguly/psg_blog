@@ -3,12 +3,12 @@ module.exports = {
     title: `Data Analysis Blog`,
     author: {
       name: `Parthasarathy Ganguly`,
-      summary: `who likes to teach and work on Data Analysis`,
+      summary: `who likes to teach and work on Data Analysis. `,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://parthasarathyganguly.netlify.app/`,
     social: {
-      twitter: `parthasarathyganguly`,
+      linkedin: `in/parthasarathy-ganguly-5026a336`,
     },
   },
   plugins: [
