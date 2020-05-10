@@ -49,6 +49,8 @@ Link to Hierarchical Clustering [Hierarchical clustering using Python](https://y
  - K-means cost Function:
     - Let Z1,…,Zk are the cluster centroids. 
     - Cost (C1,…,Ck,Z1,…,Zk)=∑_(j=1)^k▒〖∑▒〖i∈Cj〗||Xi-Zj||2〗
+    - Cost ![Eq1](./eq1.png)
+
 
 ### Isues with K-Means Clustering
 
