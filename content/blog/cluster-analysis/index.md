@@ -49,7 +49,7 @@ Link to Hierarchical Clustering [Hierarchical clustering using Python](https://y
     2. Ci ∩ Cj =∅ for all i≠j.  No observation belongs to more than one cluster.
  - K-means cost Function:
     - Let Z1,…,Zk are the cluster centroids. 
-    - Cost ![Eq1](./eq1.png){.makeleft}
+    - Cost ![Eq1](./eq1.png){: .makeleft}
 
 
 ### Isues with K-Means Clustering
