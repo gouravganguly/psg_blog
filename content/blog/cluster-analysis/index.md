@@ -58,6 +58,116 @@ description: Demonstrating how Cluster Analysis can be done using Python
     - Silhouette score
     - Visualizing data on the first two Principal Components.
 
+### Python Code for K-Means
+
+```
+# k-means clustering
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.metrics import silhouette_score
+# load  data 
+df=pd.read_csv("H:/Data/USArrests.csv")
+pd.options.display.max_columns=5
+df.head()
+df.shape
+df1=df.iloc[:,1:] # removing the string column from the data
+df1.head()
+# Standardization of features 
+scaler=StandardScaler()
+X=scaler.fit_transform(df1)
+X
+# Fitting 2 clusters (arbitary choice)
+kmeans=KMeans(n_clusters=2,n_init=20,random_state=0).fit(X) 
+
+# Cluster memberships 
+labels=kmeans.predict(X)   
+labels
+
+# cluster size
+np.unique(labels, return_counts=True)
+ 
+#cluster means(centroids) 
+df['cluster']=labels # add clustership as new column
+df.groupby('cluster').mean()
+
+# Deciding the optimal number of clusters in kmeans
+k_range=range(2,11)
+sil_score=[]
+twss=[]
+
+for k in k_range:
+    cluster=KMeans(n_clusters=k, n_init=10,random_state=42)
+    cluster.fit(X)
+    label=cluster.predict(X)
+    ss=silhouette_score(X,label)
+    sil_score.append(ss)
+    twss.append(cluster.inertia_)
+    
+
+# plot Number of clusters versus twss
+plt.plot(k_range,twss,'ro-')
+plt.ylabel("twss")
+plt.xlabel("number of cluster")
+
+# k versus silhouette
+plt.plot(k_range,sil_score,'ro-')
+plt.ylabel("Silhouette_score")
+plt.xlabel("number of cluster")
+
+# View the data along the first two  principal components 
+T=PCA(n_components=2).fit_transform(X)
+df2=pd.DataFrame(T,columns=['PC1','PC2'])
+plt.figure(figsize=(10,10))
+plt.scatter(df2.PC1,df2.PC2)
+
+# Fitting 4 clusters based on wss plot 
+kmeans=KMeans(n_clusters=4, n_init=10,random_state=0).fit(X) 
+
+# Cluster memberships 
+labels=kmeans.predict(X)   
+labels
+
+# add cluster membership as a new column
+df2['cluster']=labels
+
+# view 4 cluster on PC plot
+plt.figure(figsize=(10,10))
+plt.scatter(df2.PC1,df2.PC2,c=df2['cluster'],s=50,cmap='rainbow')
+
+# cluster means/centroid
+df1['cluster']=labels
+df1.groupby('cluster').mean()
+
+# which States in which cluster
+df['cluster']=labels
+
+df[df.cluster==0] # cities in cluster=0
+
+df[df.cluster==1] # cities in cluster=1
+
+df[df.cluster==2] # cities in cluster=2
+
+df[df.cluster==3] # cities in cluster=3
+
+# cluster size
+np.unique(labels,return_counts=True)
+
+# scatter plot with state names 
+fig, ax = plt.subplots(figsize=(10,10))
+x=df2.PC1
+y=df2.PC2
+ax.scatter(x,y,c=labels,s=50, cmap="rainbow") 
+plt.xlabel('PC1')
+plt.ylabel('PC2')
+for i, txt in enumerate(df.State):
+    ax.annotate(txt, (x[i], y[i]))
+
+```
+
 ### References 
 
  1.  Mitchell, T. M. (1997). Machine Learning. New York: McGraw-Hill 
