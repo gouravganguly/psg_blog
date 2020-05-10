@@ -1,8 +1,9 @@
----
+﻿---
 title: Cluster Analysis using Python
 date: "2020-05-09T22:40:32.169Z"
 description: Demonstrating how Cluster Analysis can be done using Python
 ---
+<link rel="stylesheet" type="text/css" href="style.css" />
 
 
 ## Goal of Cluster Analysis
@@ -26,7 +27,7 @@ Link to Hierarchical Clustering [Hierarchical clustering using Python](https://y
 
  - The idea behind K-mean clustering is that a good clustering is one for which within-cluster variation is as small as possible. 
 
- - The one possible measure of within-cluster variation for the kth cluster is the sum of all the pairwise distance between the observations in the kth cluster, divided by the total number of observations in the kth cluster. 
+ - The one possible measure of within-cluster variation for the kth cluster is the sum of all the pairwise distsance between the observations in the kth cluster, divided by the total number of observations in the kth cluster. 
 
  - The total within-cluster variation is sum of the all within-cluster variation for 1 to kth cluster. 
 
@@ -48,8 +49,7 @@ Link to Hierarchical Clustering [Hierarchical clustering using Python](https://y
     2. Ci ∩ Cj =∅ for all i≠j.  No observation belongs to more than one cluster.
  - K-means cost Function:
     - Let Z1,…,Zk are the cluster centroids. 
-    - Cost (C1,…,Ck,Z1,…,Zk)=∑_(j=1)^k▒〖∑▒〖i∈Cj〗||Xi-Zj||2〗
-    - Cost ![Eq1](./eq1.png)
+    - Cost ![Eq1](./eq1.png){.makeleft}
 
 
 ### Isues with K-Means Clustering
