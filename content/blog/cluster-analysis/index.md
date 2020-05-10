@@ -60,7 +60,7 @@ description: Demonstrating how Cluster Analysis can be done using Python
 
 ### Python Code for K-Means
 
-```
+```python
 # k-means clustering
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -165,6 +165,77 @@ plt.xlabel('PC1')
 plt.ylabel('PC2')
 for i, txt in enumerate(df.State):
     ax.annotate(txt, (x[i], y[i]))
+
+```
+### R code for K-Means Clustering
+
+```
+
+# clustering-kMeans
+# load the data
+data <- read.csv("H:/Data/USArrests.csv")
+# view the first six rows
+head(data)
+
+# choose 4 numerical variables from the data
+df <- data[,2:5]
+head(df)
+str(df) # structure of data
+
+# standardize the variables of data 
+dfNorm <- as.data.frame(scale(df))
+
+# apply 2 clusters
+clus_k2 <-kmeans(dfNorm,centers=2)  
+clus_k2
+
+# cluster means/centroids in terms of original variable value
+aggregate(df,by=list(cluster=clus_k2$cluster),mean) # cluster means
+
+#Decide the optimal value of k
+twss <- numeric()
+set.seed(1235)
+
+for (k in 1:10){
+  # For each k, calculate  tot.withinss
+  wss[k] <- kmeans(dfNorm,centers = k)$tot.withinss
+}
+
+
+# plot of Total within-cluster sum of squares versus  k
+p2 <- plot(1:10,wss,type = "b",xlab = "number of cluster",ylab = "wss")
+
+
+
+#Choose 4 clusters based on elbow criteria
+clus_k4 <-kmeans(dfNorm,centers=4)
+
+#cluster membership
+clus_k4$cluster
+
+# cluster sizes
+clus_k4$size
+
+# cluster means
+clus_k4$centers
+
+# cluster means/centroids
+aggregate(df,by=list(cluster=clus_k4$cluster),FUN=mean) # cluster means
+
+# Plot the observations along the principal components
+pc <- prcomp(df,center=TRUE,scale. = TRUE)
+pc <- pc$x[,1:2]
+plot(pc)
+
+# plot of 4 clusters on principal component plot
+plot(pc,col=clus_k4$cluster,pch=16)
+
+# which States in which cluster
+data$cluster <-  clus_k4$cluster # add the cluster member ship as new column
+data$State[data$cluster==1]
+data$State[data$cluster==2]
+data$State[data$cluster==3]
+data$State[data$cluster==4]
 
 ```
 
