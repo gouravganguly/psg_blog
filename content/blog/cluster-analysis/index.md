@@ -1,7 +1,7 @@
 ﻿---
-title: Cluster Analysis using Python
+title: Cluster Analysis using Python and R
 date: "2020-05-09T22:40:32.169Z"
-description: Demonstrating how Cluster Analysis can be done using Python
+description: Demonstrating how Cluster Analysis can be done using Python and R
 ---
 
 

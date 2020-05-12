@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Data Analysis Blog`,
+    title: `Data Science / Business Analysis Blog`,
     author: {
       name: `Parthasarathy Ganguly`,
-      summary: `who likes to teach and work on Data Analysis. `,
+      summary: `who likes to teach and work on Data Science. `,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://parthasarathyganguly.netlify.app/`,
