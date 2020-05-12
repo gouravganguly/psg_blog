@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Data Science / Business Analysis Blog`,
+    title: `Data Science / Business Analytics Blog`,
     author: {
       name: `Parthasarathy Ganguly`,
       summary: `who likes to teach and work on Data Science. `,
