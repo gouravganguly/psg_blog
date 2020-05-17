@@ -13,7 +13,7 @@ description: Demonstrating how Cluster Analysis can be done using Python and R
 
 ### Youtube Tutorial
 
-Link to Hierarchical Clustering [Hierarchical clustering using Python](https://youtu.be/B4NpMtK-ZxA).
+Link to Clustering concepts [Hierarchical clustering using Python](https://www.youtube.com/channel/UC-0ozvsLZBVTC31JqpKflGw).
 
 ### Application of Clustering
 
